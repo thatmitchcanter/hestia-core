@@ -1,0 +1,7 @@
+services:
+  hestia:
+    build: .
+    container_name: hestia
+    ports:
+      - "8080:80"
+    restart: unless-stopped

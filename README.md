@@ -65,14 +65,23 @@ This is the best way to run Hestia if you plan to use the **API integrations** (
     cd hestia-core
     ```
 
-2.  Build and Run:
+2.  Build, run, and set up a local domain:
 
     ```bash
-    docker build -t hestia-core .
-    docker run -d -p 8080:80 --name hestia hestia-core
+    ./scripts/setup-local.sh
     ```
 
-3.  Visit `http://localhost:8080`\!
+    Or manually:
+
+    ```bash
+    docker compose up -d --build
+    ```
+
+3.  Visit `http://hestia.local:8080` (or `http://localhost:8080`).
+
+    The setup script adds `hestia.local` to `/etc/hosts`. Port 8080 is used because port 80 is typically reserved by Local WP.
+
+    **Auto-start on reboot:** the compose file sets `restart: unless-stopped`. Also enable **Docker Desktop → Settings → General → Start Docker Desktop when you sign in to your computer**.
 
 ### Option 2: Static / Manual
 
